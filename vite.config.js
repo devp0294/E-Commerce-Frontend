@@ -3,12 +3,15 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [react()],
-	server: {
-		proxy: {
-			"/api": {
-				target: "http://localhost:5000",
-			},
-		},
-	},
+  plugins: [react()],
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:5000",
+      },
+    },
+  },
+  build: {
+    chunkSizeWarningLimit: 2000, // in KB (e.g., 2000 KB = 2 MB)
+  },
 });
